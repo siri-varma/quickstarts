@@ -105,25 +105,24 @@ dapr stop -f .
 
 ### Schedule Jobs
 
-1. Open a terminal and run the `job-service` app. Build the dependencies if you haven't already.
+1. Open a terminal and run the `job-scheduler` app. Build the dependencies if you haven't already.
 
 ```bash
 cd ./job-schediler
 mvn clean install
-cd ..
 ```
 
 ```bash
-dapr run --app-id job-service-sdk --app-port 6200 --dapr-http-port 6280
+dapr run --app-id job-service-sdk --app-port 8080 --dapr-grpc-port 6200 --dapr-http-port 6280
 ```
 
 2. In a new terminal window, run the Job jar.
 
 ```bash
-java -jar "JobsSchedulerService-0.0.1-SNAPSHOT.jar"
+java -jar "target/JobsSchedulerService-0.0.1-SNAPSHOT.jar"
 ```
 
-In the `job-service` terminal window, the output should be:
+In the `job-scheduler` terminal window, the output should be:
 
 ```text
 == APP - job-app == Received job request...
